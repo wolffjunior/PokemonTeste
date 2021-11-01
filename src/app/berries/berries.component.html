@@ -1,0 +1,16 @@
+<div *ngFor="let berrie of berries">
+    <div class="berries-card">
+        <div class="berries-card__image">
+            <img [src]="getBerriesImage(berrie.item.name)">
+        </div>
+        <div class="berries-card__number">
+            Nº {{berrie.id}}
+        </div>
+        <div class="berries-card__name">
+            {{berrie.item.name}}
+        </div>
+    </div>
+
+    
+
+</div>

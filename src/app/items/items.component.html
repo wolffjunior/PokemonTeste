@@ -1,0 +1,16 @@
+<div *ngFor="let item of items">
+    <div class="items-card">
+        <div class="items-card__image">
+            <img [src]="getItemsImage(item.name)">
+        </div>
+        <div class="items-card__number">
+            Nº {{item.id}}
+        </div>
+        <div class="items-card__name">
+            {{item.name}}
+        </div>
+    </div>
+
+    
+
+</div>

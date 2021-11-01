@@ -1,0 +1,33 @@
+.berries-card
+    display: flex
+    flex-direction: column
+    font-family: "Signika", arial, sans-serif
+    margin: 0 5px 50px
+    width: 215px
+    
+
+    img
+        width: 70%
+        height: 70%
+        background: #F2F2F2
+        justify-content: center
+
+    &__number,
+    &__name
+        padding: 0 10px
+
+    &__number
+        color: #919191
+        font-size: 80%
+        padding-top: 2px
+
+    &__name
+        color: #313131
+        font-size: 145%
+        margin: 0.5em 0 5px
+        text-transform: capitalize
+
+\:host
+    display: flex
+    flex-wrap: wrap
+    place-content: space-evenly
