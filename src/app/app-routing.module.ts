@@ -5,28 +5,25 @@ import { PokemonsComponent } from './pokemons/pokemons.component';
 import { BerriesComponent } from './berries/berries.component';
 import { ItemsComponent } from './items/items.component';
 
-
-
 const routes: Routes = [
-
-    {
-      path: "",
-      component: NavBarComponent,
-      children: [
-        {
-        path: "pokemons",
-        component: PokemonsComponent
-        },
-        {
-        path: "berries",
-        component: BerriesComponent
-        },
-        {
-        path: "items",
-        component: ItemsComponent
-        }
+  {
+    path: "",
+    component: NavBarComponent,
+    children: [
+      {
+      path: "pokemons",
+      component: PokemonsComponent
+      },
+      {
+      path: "berries",
+      component: BerriesComponent
+      },
+      {
+      path: "items",
+      component: ItemsComponent
+      }
     ]
-    }
+  }
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,23 +1,46 @@
-<!-- <div class="pokemon-card" *ngIf="pokemon">
-    <div class="pokemon-card__image">
-
-        <img [src]="getPokemonImage(pokemon)" alt="Pokemon Image">
-    </div>
-
-    <div class="pokemon-card__number">
-        Nº {{ getPokemonNumber(pokemon) }}
-    </div>
-
-    <div class="pokemon-card__name">
-        {{ pokemon.name }}
-    </div>
-
-    <div class="pokemon-card__types">
-        <div class="pokemon-card__type" *ngFor="let type of pokemon.types"
-            [class]="'pokemon-card__type--' + type.toLowerCase()">
-            {{ type }}
+<div class="d-flex flex-column align-items-center justify-content-center mx-4">
+    <ng-container *ngIf="selectedPokemon">
+        <div class="d-flex align-itens-center w-100 mb-4 mx-4">
+            <div id="pokemonImage" class="ml-4">
+                <img [src]="selectedPokemon?.imageUrl" alt="Pokemon Image">
+            </div>
+            <div class="d-flex flex-column justify-content-center mr-4">
+                <span>Nome: {{selectedPokemon?.name}}</span>
+                <span>Id: {{selectedPokemon?.id}}</span>
+                <div class="text-justify">
+                    <span>Tipos: 
+                        <ng-container *ngFor= "let type of selectedPokemon?.types; let idx = index">
+                            {{ (type.type.name) + (idx+1 != selectedPokemon?.types.length ? ", " : ".") }}
+                        </ng-container>
+                    </span>
+                </div>
+                <div class="text-justify">
+                    <span>Status: 
+                        <ng-container *ngFor= "let stat of selectedPokemon?.stats; let idx = index">
+                            <div class="d-flex ml-4">
+                                {{stat.stat.name+": "+stat.base_stat}}
+                            </div>
+                        </ng-container>
+                    </span>
+                </div>
+                <div class="text-justify">
+                    <span>Habilidades: 
+                        <ng-container *ngFor= "let ability of selectedPokemon?.abilities; let idx = index">
+                            {{ (ability.ability.name) + (idx+1 != selectedPokemon?.abilities.length ? ", " : ".") }}
+                        </ng-container>
+                    </span>
+                </div>
+                <div class="text-justify">
+                    <span>Golpes: 
+                        <ng-container *ngFor= "let move of selectedPokemon?.moves; let idx = index">
+                            {{ (move.move.name) + (idx+1 != selectedPokemon?.moves.length ? ", " : ".") }}
+                        </ng-container>
+                    </span>
+                </div>
+            </div>
         </div>
+    </ng-container>
+    <div class="d-flex flex-wrap align-items-center justify-content-center w-100">
+        <app-pokemon-card *ngFor="let pokemon of pokemons" [pokemon]="pokemon" (selectedPokemon)="test($event)"></app-pokemon-card>
     </div>
 </div>
--->
-<app-pokemon-card *ngFor="let pokemon of pokemonService.pokemons" [pokemon]="pokemon"></app-pokemon-card>
